@@ -1,16 +1,38 @@
-# 샘플 Python 스크립트입니다.
+lst = [1,2,3] # 0, 1, 2 번지에 값 할당
+print(lst, type(lst))
 
-# Shift+F10을(를) 눌러 실행하거나 내 코드로 바꿉니다.
-# 클래스, 파일, 도구 창, 액션 및 설정을 어디서나 검색하려면 Shift 두 번을(를) 누릅니다.
+print(lst[0], lst[1], lst[2])
+
+print('변경전 id : ',id(lst))
+
+# 맨뒤에 요소 추가
+lst.append(4)
+print(lst)
+print('변경후 id : ',id(lst))
+
+lst.insert(1,1.5)
+print(lst)
+
+lst.pop(2)
+print(lst)
+
+data = '홍길동,20,서울,서초구'
+data_ = data.split(',')
+print(data_, type(data_))
+
+name = data_[0]
+age = data_[1]
+add1 = data_[2]
+add2=data_[3]
+print(name,age,add1,add2)
 
 
-def print_hi(name):
-    # 스크립트를 디버그하려면 하단 코드 줄의 중단점을 사용합니다.
-    print(f'Hi, {name}')  # 중단점을 전환하려면 Ctrl+F8을(를) 누릅니다.
 
+lst = ['a', 'b', 'c']
+# for 변수 in 순회객체 :
+for v in lst:
+    print(v)
 
-# 스크립트를 실행하려면 여백의 녹색 버튼을 누릅니다.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# https://www.jetbrains.com/help/pycharm/에서 PyCharm 도움말 참조
+# 인덱스 순회
+for index, v in enumerate(lst):
+    print(index, v)

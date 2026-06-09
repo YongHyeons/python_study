@@ -1,38 +1,28 @@
-lst = [1,2,3] # 0, 1, 2 번지에 값 할당
-print(lst, type(lst))
+import threading
+import webbrowser
 
-print(lst[0], lst[1], lst[2])
-
-print('변경전 id : ',id(lst))
-
-# 맨뒤에 요소 추가
-lst.append(4)
-print(lst)
-print('변경후 id : ',id(lst))
-
-lst.insert(1,1.5)
-print(lst)
-
-lst.pop(2)
-print(lst)
-
-data = '홍길동,20,서울,서초구'
-data_ = data.split(',')
-print(data_, type(data_))
-
-name = data_[0]
-age = data_[1]
-add1 = data_[2]
-add2=data_[3]
-print(name,age,add1,add2)
+from app import app
 
 
+def open_browser():
+    webbrowser.open('http://127.0.0.1:5000')
 
-lst = ['a', 'b', 'c']
-# for 변수 in 순회객체 :
-for v in lst:
-    print(v)
 
-# 인덱스 순회
-for index, v in enumerate(lst):
-    print(index, v)
+def main():
+    print('뉴스 웹 서버를 시작합니다.')
+    print('브라우저 주소: http://127.0.0.1:5000')
+    print('서버를 종료하려면 콘솔에서 Ctrl + C 를 누르세요.')
+
+    timer = threading.Timer(1.0, open_browser)
+    timer.start()
+
+    app.run(
+        host='127.0.0.1',
+        port=5000,
+        debug=False,
+        threaded=True
+    )
+
+
+if __name__ == '__main__':
+    main()
